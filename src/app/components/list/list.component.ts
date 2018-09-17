@@ -3,7 +3,7 @@ import {FethService} from "../../services/feth.service";
 import {ActivatedRoute} from "@angular/router";
 import {Beer} from "../../interface/Beer";
 import {LoaderService} from '../../services/loader.service';
-
+import {SearchPipe} from '../../pipes/filter.pipe';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',

@@ -1,8 +1,10 @@
-<ul>
-  <single-item *ngFor="let beer of beers"
-               [beer]="beer">
+<input placeholder="Item name..." [(ngModel)]="query" >
+
+{{query}}<ul>
+  <single-item *ngFor="let beer of beers | search:'name':query"
+               [beer]="beer"  >
   </single-item>
 </ul>
 <div class="text-center">
-  <h2 *ngIf="noSearchResults">Brak wyników wyszukiwania</h2>
+  <h2 *ngIf="noSearchResults">No results found</h2>
 </div>

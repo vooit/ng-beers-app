@@ -10,16 +10,20 @@ import {SingleItemComponent} from './components/list/single-item/single-item.com
 import {LoaderComponent} from './components/loader/loader.component';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {CustomHttpInterceptor} from "./services/http-interceptor.service";
+import {SearchPipe} from "./pipes/filter.pipe";
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     SortPipe,
+    SearchPipe,
     ListComponent,
     SingleItemComponent,
     LoaderComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule
