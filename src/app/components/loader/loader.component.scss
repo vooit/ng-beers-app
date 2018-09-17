@@ -1,0 +1,60 @@
+.loader {
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  position: fixed;
+}
+
+.loader--visible {
+  display: flex;
+}
+
+.loader__wpapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loader__spinner {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 140px;
+  transform-origin: 50% 52%;
+  transform: translate(50%, 50%);
+  animation: spin 5.2s linear infinite;
+}
+
+@keyframes animation-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading__earth-img {
+  max-width: 80px;
+}
+
+.loader__title {
+  font-size: 26px;
+  position: absolute;
+  color: white;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 26%;
+}
