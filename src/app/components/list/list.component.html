@@ -1,0 +1,8 @@
+<ul>
+  <single-item *ngFor="let beer of beers"
+               [beer]="beer">
+  </single-item>
+</ul>
+<div class="text-center">
+  <h2 *ngIf="noSearchResults">Brak wyników wyszukiwania</h2>
+</div>

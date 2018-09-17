@@ -1,16 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
+import {AppComponent} from './app.component';
+import {SortPipe} from './pipes/sort.pipe';
+import {ListComponent} from './components/list/list.component';
+import {FethService} from "./services/feth.service";
+import {AppRoutingModule} from "./app.routing";
+import { SingleItemComponent } from './components/list/single-item/single-item.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SortPipe,
+    ListComponent,
+    SingleItemComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [FethService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
