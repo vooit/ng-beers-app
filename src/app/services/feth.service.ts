@@ -18,4 +18,8 @@ export class FethService {
   getData() {
     return this.http.get(this.url);
   }
+
+  getBeer(id) {
+    return this.http.get(`${this.url}/${id}`);
+  }
 }

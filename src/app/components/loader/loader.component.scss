@@ -1,3 +1,9 @@
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .loader {
   z-index: 100;
   background: rgba(0, 0, 0, 0.8);
@@ -15,7 +21,7 @@
   display: flex;
 }
 
-.loader__wpapper {
+.loader__wrapper {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -35,7 +41,7 @@
   animation: spin 5.2s linear infinite;
 }
 
-@keyframes animation-spinner {
+@keyframes spin{
   0% {
     transform: rotate(0deg);
   }

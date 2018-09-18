@@ -10,17 +10,21 @@ import {SingleItemComponent} from './components/list/single-item/single-item.com
 import {LoaderComponent} from './components/loader/loader.component';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {CustomHttpInterceptor} from "./services/http-interceptor.service";
-import {SearchPipe} from "./pipes/filter.pipe";
+import {FilterPipe} from "./pipes/filter.pipe";
 import {FormsModule} from '@angular/forms';
+import { PopupComponent } from './components/popup/popup.component';
+import { BeerViewComponent } from './components/beer-view/beer-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SortPipe,
-    SearchPipe,
+    FilterPipe,
     ListComponent,
     SingleItemComponent,
-    LoaderComponent
+    LoaderComponent,
+    PopupComponent,
+    BeerViewComponent
   ],
   imports: [
     FormsModule,

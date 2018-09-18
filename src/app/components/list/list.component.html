@@ -1,10 +1,21 @@
-<input placeholder="Item name..." [(ngModel)]="query" >
+<input placeholder="Item name..." [(ngModel)]="query">
 
-{{query}}<ul>
-  <single-item *ngFor="let beer of beers | search:'name':query"
-               [beer]="beer"  >
+{{query}}
+
+
+<table>
+  <tr>
+    <th (click)="setOrder('id')" >id</th>
+    <th (click)="setOrder('name')" >name</th>
+    <th>img</th>
+    <th>tagline</th>
+  </tr>
+  <single-item *ngFor="let beer of beers | filterPipe:'name':query | orderBy: order:!reverse"
+               [beer]="beer"
+                class="single-item">
   </single-item>
-</ul>
+</table>
+
 <div class="text-center">
   <h2 *ngIf="noSearchResults">No results found</h2>
 </div>

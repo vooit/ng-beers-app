@@ -1,7 +1,20 @@
-<div class="item">
-  <img class="item__image" src="{{beer.image_url}}" alt="{{beer.name}}"/>
+<!--
+<div class="item" style="display: flex;align-items: center;">
+  <img class="item__image" style="width:50px;" src="{{beer.image_url}}" alt="{{beer.name}}"/>
   <div class="">
     <h2 class="item__title">{{beer.name}}</h2>
     <p class="item__tagline">{{beer.tagline}}</p>
   </div>
+  <span (click)="goToBeer($event, beer.id)">redirect</span>
 </div>
+-->
+
+<tr>
+
+  <td >{{beer.id}}</td>
+  <td >{{beer.name}} <span (click)="goToBeer($event, beer.id)">redirect</span></td>
+  <td>  <img class="item__image" style="width:50px;" src="{{beer.image_url}}" alt="{{beer.name}}"/></td>
+  <td> {{beer.tagline}}</td>
+
+
+</tr>
