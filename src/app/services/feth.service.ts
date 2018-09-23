@@ -8,9 +8,9 @@ import {Router} from '@angular/router';
 })
 
 export class FethService {
-  private itemsPerPage = 15;
+  // private itemsPerPage = 15;
   private url = `https://api.punkapi.com/v2/beers`;
-  private pageNumber = 1;
+  // private pageNumber = 1;
 
   constructor(private http: HttpClient, private router: Router) {
   }

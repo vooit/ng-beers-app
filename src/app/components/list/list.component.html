@@ -1,11 +1,13 @@
 <input placeholder="Item name..." [(ngModel)]="query">
 
-{{query}}
-
-
 <table>
   <tr>
-    <th (click)="setOrder('id')" >id</th>
+    <th (click)="setOrder('id')" >
+      id
+      <span class="glyphicon sort-icon"
+            *ngIf="key =='name'"
+            [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}">test</span>
+    </th>
     <th (click)="setOrder('name')" >name</th>
     <th>img</th>
     <th>tagline</th>
@@ -14,8 +16,9 @@
                [beer]="beer"
                 class="single-item">
   </single-item>
+  <h2 *ngIf="(beers | filterPipe: 'name':query).length === 0">No matching elements</h2>
+
 </table>
 
-<div class="text-center">
-  <h2 *ngIf="noSearchResults">No results found</h2>
-</div>
+
+<app-favorites></app-favorites>

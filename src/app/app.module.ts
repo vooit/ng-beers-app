@@ -12,8 +12,10 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {CustomHttpInterceptor} from "./services/http-interceptor.service";
 import {FilterPipe} from "./pipes/filter.pipe";
 import {FormsModule} from '@angular/forms';
-import { PopupComponent } from './components/popup/popup.component';
-import { BeerViewComponent } from './components/beer-view/beer-view.component';
+import {PopupComponent} from './components/popup/popup.component';
+import {BeerViewComponent} from './components/beer-view/beer-view.component';
+import {FavoritesComponent} from './components/favorites/favorites.component';
+import {FavoritesService} from "./services/favorites.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { BeerViewComponent } from './components/beer-view/beer-view.component';
     SingleItemComponent,
     LoaderComponent,
     PopupComponent,
-    BeerViewComponent
+    BeerViewComponent,
+    FavoritesComponent
   ],
   imports: [
     FormsModule,
@@ -32,7 +35,7 @@ import { BeerViewComponent } from './components/beer-view/beer-view.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [FethService, {
+  providers: [FethService, FavoritesService, {
     provide: HTTP_INTERCEPTORS,
     useClass: CustomHttpInterceptor,
     multi: true
