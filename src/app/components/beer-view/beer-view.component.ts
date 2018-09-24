@@ -19,6 +19,7 @@ export class BeerViewComponent implements OnInit {
               private router: Router,
               private fethService: FethService) {
     this.route.params.subscribe(params => this.id = params['id']);
+
     this.beerSub = this.fethService.getBeer(this.id).subscribe(data => {
       console.log(data);
       this.beer = data[0];

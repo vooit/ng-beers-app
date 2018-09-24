@@ -24,6 +24,7 @@ import {MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     MatFormFieldModule,
     MatInputModule,
     MatToolbarModule,
+    InfiniteScrollModule,
     NgbModule
   ],
   providers: [

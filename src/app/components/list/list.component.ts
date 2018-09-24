@@ -15,15 +15,9 @@ export class ListComponent implements OnInit {
   order: string = 'name';
   reverse: boolean = false;
 
-  showConfig() {
-    this.fethService.getData()
-      .subscribe((data: Beer) => {
-        this.beers = data;
-        if (!this.beers) {
-          this.noSearchResults = true;
-        }
-      });
-  }
+  private beersObsrv;
+  private loadMoreSub;
+  private beersSub;
 
   constructor(private fethService: FethService,
               private route: ActivatedRoute,
@@ -31,14 +25,40 @@ export class ListComponent implements OnInit {
     this.showConfig();
   }
 
-  ngOnInit() {
+  // showConfig() {
+  //   this.fethService.getBeers()
+  //     .subscribe((data: Beer) => {
+  //       this.beers = data;
+  //       if (!this.beers) {
+  //         this.noSearchResults = true;
+  //       }
+  //     });
+  // }
+  //
+  showConfig() {
+    this.beersSub = this.fethService.getBeers().subscribe( () => {
+      this.beersObsrv = this.fethService.beersToDisplayObservable.subscribe(beer => this.beers = beer);
+    });
   }
 
 
+
+  //
   setOrder(value: string) {
     if (this.order === value) {
       this.reverse = !this.reverse;
     }
     this.order = value;
   }
+
+  loadMore() {
+    this.loadMoreSub = this.fethService.getMoreBeers().subscribe( () => {
+      this.beersObsrv = this.fethService.beersToDisplayObservable.subscribe(beer => this.beers = beer);
+    });
+  }
+
+
+  ngOnInit() {
+  }
+
 }
