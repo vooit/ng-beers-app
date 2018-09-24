@@ -9,15 +9,13 @@ import {FavoritesService} from '../../services/favorites.service';
   styleUrls: ['./favorites.component.scss']
 })
 export class FavoritesComponent implements OnInit {
-  public favaoritesItems$ = of([]);
   public favoriteListItems:any = [];
 
   constructor(private favoritesService: FavoritesService) {
-    this.favaoritesItems$ = this
-      .favoritesService
-      .getItems();
-
-    this.favaoritesItems$.subscribe(el => this.favoriteListItems = el);
+    this.favoritesService.getItems().subscribe(el => {
+      console.log(el);
+      this.favoriteListItems = el;
+    });
   }
   ngOnInit() {
   }

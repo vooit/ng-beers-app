@@ -1,31 +1,35 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import {ReplaySubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoritesService {
-  private itemsInFavListSubject: BehaviorSubject = new BehaviorSubject(<any[]>);
-  private itemsInFav: any = ['pooopooo', 'pooopooo2'];
+  private itemsInFavListSubjectStream = new ReplaySubject();
+  private obsr = this.itemsInFavListSubjectStream.asObservable();
+  private itemsInFav: any = [];
 
   constructor() {
-    this.itemsInFavListSubject.subscribe(item => this.itemsInFav = item);
+    this.obsr.subscribe(item => {
+      console.log(item);
+      this.itemsInFav = item;
+    });
   }
 
   addToFavorites(item) {
-    console.log('addToFavorites')
-    this.itemsInFavListSubject.next([...this.itemsInFav, item]);
+    console.log('addToFavorites', this.itemsInFav, item);
+    this.itemsInFavListSubjectStream.next([...this.itemsInFav, item]);
   }
 
   getItems() {
-    return this.itemsInFavListSubject;
+    return this.obsr;
   }
 
   removeFromFav(item) {
-    console.log('addToFavorites')
+    console.log('addToFavorites');
     const currentItems = [...this.itemsInFav];
     const itemsFiltered = currentItems.filter(el => el.id !== item.id);
-    this.itemsInFavListSubject.next(itemsFiltered);
+    this.itemsInFavListSubjectStream.next(itemsFiltered);
   }
 }
 

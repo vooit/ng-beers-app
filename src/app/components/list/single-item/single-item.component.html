@@ -2,8 +2,8 @@
   <td >{{beer.id}}</td>
   <td >{{beer.name}} <br>
     <button type="button" (click)="goToBeer($event, beer.id)">redirect</button>
-    <button type="button" (click)="removeFromFav(item)">Remove</button>
-    <button type="button" (click)="addToFavorites(item)">Add</button>
+    <button type="button" (click)="removeFromFav(beer)">Remove</button>
+    <button type="button" (click)="addToFavorites(beer)">Add</button>
   </td>
   <td>  <img class="item__image" style="width:50px;" src="{{beer.image_url}}" alt="{{beer.name}}"/></td>
   <td> {{beer.tagline}} <br>

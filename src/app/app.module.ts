@@ -16,6 +16,7 @@ import {PopupComponent} from './components/popup/popup.component';
 import {BeerViewComponent} from './components/beer-view/beer-view.component';
 import {FavoritesComponent} from './components/favorites/favorites.component';
 import {FavoritesService} from "./services/favorites.service";
+import {APP_BASE_HREF} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,13 @@ import {FavoritesService} from "./services/favorites.service";
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [FethService, FavoritesService, {
+  providers: [
+    FethService,
+    {
+      provide: APP_BASE_HREF,
+      useValue: '/beers',
+    },
+    FavoritesService, {
     provide: HTTP_INTERCEPTORS,
     useClass: CustomHttpInterceptor,
     multi: true
