@@ -17,6 +17,13 @@ import {BeerViewComponent} from './components/beer-view/beer-view.component';
 import {FavoritesComponent} from './components/favorites/favorites.component';
 import {FavoritesService} from "./services/favorites.service";
 import {APP_BASE_HREF} from '@angular/common';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -34,7 +41,14 @@ import {APP_BASE_HREF} from '@angular/common';
     FormsModule,
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatToolbarModule,
+    NgbModule
   ],
   providers: [
     FethService,

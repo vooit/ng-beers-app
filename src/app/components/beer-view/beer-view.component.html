@@ -1,27 +1,29 @@
-<div class="container beer" *ngIf="beer">
-  <div class="row">
-    <div class="col-sm-3 text-center">
-      <img class="beer__image" src="{{beer.image_url}}"/>
-    </div>
-    <div class="col-sm-9">
-      <h3 class="beer__name">{{beer.name}}</h3>
-      <p class="beer__tagline">{{beer.tagline}}</p>
 
-      <hr class="special-line"/>
 
-      <div class="beer__data">
-        <div><strong>IBU:</strong> {{beer.ibu}}</div>
-        <div><strong>ABV:</strong> {{beer.abv}}%</div>
-        <div><strong>EBC:</strong> {{beer.ebc}}</div>
-      </div>
-
-      <div class="beer__descrciption">
-        <p>{{beer.description}}</p>
-        Best served with:
-        <ul>
+<mat-card class="card" style="max-width: 250px; margin: 0 auto" *ngIf="beer">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title class="beer__name">{{beer.name}}</mat-card-title>
+    <mat-card-subtitle class="beer__tagline">{{beer.tagline}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image class="beer__image"
+       style="max-width: 50px; margin: 0 auto; display: block"
+       src="{{beer.image_url}}"
+       alt={{beer.name}}>
+  <mat-card-content>
+    <div class="beer__descrciption">
+      <p>{{beer.description}}</p>
+      Best served with:
+      <ul>
         <li *ngFor="let item of beer.food_pairing">{{item}}</li>
-        </ul>
-      </div>
+      </ul>
     </div>
-  </div>
-</div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="beer__data">
+      <div><strong>IBU:</strong> {{beer.ibu}}</div>
+      <div><strong>ABV:</strong> {{beer.abv}}%</div>
+      <div><strong>EBC:</strong> {{beer.ebc}}</div>
+    </div>
+  </mat-card-actions>
+</mat-card>

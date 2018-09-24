@@ -1,5 +1,8 @@
-<input placeholder="Item name..." [(ngModel)]="query">
 
+<!--<input placeholder="Item name..." [(ngModel)]="query">-->
+<mat-form-field class="example-full-width">
+  <textarea matInput placeholder="Item name..." [(ngModel)]="query"></textarea>
+</mat-form-field>
 <table>
   <tr>
     <th (click)="setOrder('id')" >

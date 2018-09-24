@@ -1,9 +1,27 @@
 <app-loader></app-loader>
 <div>
   <header>
-      <p class="app-desc">Find your taste!
-        <button type="button" routerLink="/beers" routerLinkActive="active-link">beers list</button>
-        <button type="button" routerLink="/favorites" routerLinkActive="active-link">favorites</button></p>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row class="" style="display: flex;align-items: center;justify-content: space-between;">
+
+        <p class="app-desc">Find your taste!</p>
+        <div>
+          <button type="button"
+                  mat-raised-button
+                  routerLink="/beers"
+                  routerLinkActive="active-link">beers list
+          </button>
+          <button type="button"
+                  routerLink="/favorites"
+                  mat-raised-button
+                  routerLinkActive="active-link">favorites
+          </button>
+        </div>
+
+
+      </mat-toolbar-row>
+    </mat-toolbar>
+
   </header>
 
   <main>
