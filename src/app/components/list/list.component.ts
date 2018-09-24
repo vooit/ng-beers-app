@@ -36,8 +36,8 @@ export class ListComponent implements OnInit {
   // }
   //
   showConfig() {
-    this.beersSub = this.fethService.getBeers().subscribe( () => {
-      this.beersObsrv = this.fethService.beersToDisplayObservable.subscribe(beer => this.beers = beer);
+    this.fethService.getBeers().subscribe( () => {
+      this.fethService.beersToDisplayObservable.subscribe(beer => this.beers = beer);
     });
   }
 
