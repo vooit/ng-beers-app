@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FethService} from "../../services/feth.service";
-import {Beer} from "../../interface/Beer";
+// import {Beer} from "../../interface/Beer";
 import {LoaderService} from '../../services/loader.service';
-import {Router, ActivatedRoute, ParamMap} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import {ISubscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-list',
@@ -15,9 +16,10 @@ export class ListComponent implements OnInit {
   order: string = 'name';
   reverse: boolean = false;
 
-  private beersObsrv;
-  private loadMoreSub;
-  private beersSub;
+  private beersSub: ISubscription;
+  private beersObsrv: ISubscription;
+  private loadMoreSub: ISubscription;
+  private routerSub: ISubscription;
 
   constructor(private fethService: FethService,
               private route: ActivatedRoute,
@@ -36,8 +38,8 @@ export class ListComponent implements OnInit {
   // }
   //
   showConfig() {
-    this.fethService.getBeers().subscribe( () => {
-      this.fethService.beersToDisplayObservable.subscribe(beer => this.beers = beer);
+    this.beersSub = this.fethService.getBeers().subscribe( () => {
+      this.beersObsrv = this.fethService.beersToDisplayObservable.subscribe(beer => this.beers = beer);
     });
   }
 

@@ -17,7 +17,7 @@ export class FethService {
 
   constructor(private http: HttpClient, private router: Router) {
   }
-  beersToDisplay = new BehaviorSubject<any>('');
+  beersToDisplay = new BehaviorSubject<any>([]);
   beersToDisplayObservable = this.beersToDisplay.asObservable();
 
   getBeers() {
@@ -41,9 +41,7 @@ export class FethService {
   //       this.beersToDisplay.next(data);
   //     });
   // }
-
-
-
+  
   getMoreBeers() {
     this.pageNumber++;
     return this.http.get(`${this.url}?per_page=${this.itemsPerPage}&page=${this.pageNumber}`)

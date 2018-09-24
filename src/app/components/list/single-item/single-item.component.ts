@@ -10,6 +10,8 @@ import {FavoritesService} from '../../../services/favorites.service';
 export class SingleItemComponent implements OnInit {
   @Input() beer;
 
+  private isAdded = false;
+
   constructor(private router: Router, private favoritesService: FavoritesService) {
   }
 
@@ -24,9 +26,12 @@ export class SingleItemComponent implements OnInit {
   addToFavorites(item) {
     console.log('addToFavorites');
     this.favoritesService.addToFavorites(item);
+    this.isAdded = true;
   }
 
   removeFromFav(item) {
+    console.log('removed fromFavorites');
     this.favoritesService.removeFromFav(item);
+    this.isAdded = false;
   }
 }
