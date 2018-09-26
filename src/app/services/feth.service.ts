@@ -31,17 +31,10 @@ export class FethService {
     return this.http.get(`${this.url}?per_page=${this.itemsPerPage}&page=${this.pageNumber}`)
       .map(data => {
         this.beersToDisplay.next(data);
+        return data;
       });
   }
 
-  // getBeers() {
-  //   this.pageNumber = 1;
-  //   return this.http.get(`${this.url}?per_page=${this.itemsPerPage}&page=${this.pageNumber}`)
-  //     .map(data => {
-  //       this.beersToDisplay.next(data);
-  //     });
-  // }
-  
   getMoreBeers() {
     this.pageNumber++;
     return this.http.get(`${this.url}?per_page=${this.itemsPerPage}&page=${this.pageNumber}`)
