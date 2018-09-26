@@ -12,7 +12,6 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {CustomHttpInterceptor} from "./services/http-interceptor.service";
 import {FilterPipe} from "./pipes/filter.pipe";
 import {FormsModule} from '@angular/forms';
-import {PopupComponent} from './components/popup/popup.component';
 import {BeerViewComponent} from './components/beer-view/beer-view.component';
 import {FavoritesComponent} from './components/favorites/favorites.component';
 import {FavoritesService} from "./services/favorites.service";
@@ -34,7 +33,6 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
     ListComponent,
     SingleItemComponent,
     LoaderComponent,
-    PopupComponent,
     BeerViewComponent,
     FavoritesComponent
   ],

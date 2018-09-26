@@ -1,26 +1,33 @@
-<div infiniteScroll (scrolled)="loadMore()">
-  <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Item name..." [(ngModel)]="query"></textarea>
-  </mat-form-field>
-  <table>
-    <tr>
-      <th (click)="setOrder('id')">
-        id
-        <span class="glyphicon sort-icon"
-              *ngIf="key =='name'"
-              [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}">test</span>
-      </th>
-      <th (click)="setOrder('name')">name</th>
-      <th>img</th>
-      <th>tagline</th>
-    </tr>
-    <single-item *ngFor="let beer of beers | filterPipe:'name':query | orderBy: order:!reverse"
-                 [beer]="beer"
-                 class="single-item">
-    </single-item>
-    <h2 *ngIf="(beers | filterPipe: 'name':query).length === 0">No matching elements</h2>
+<div class="flex-row">
+  <div class="col-18">
+    <div infiniteScroll (scrolled)="loadMore()" class="container">
+      <mat-form-field class="search col-12">
+    <textarea matInput
+              class="search__input"
+              placeholder="Find your taste..."
+              [(ngModel)]="query"></textarea>
+      </mat-form-field>
+      <table class="list col-24 scrollable-x ">
+        <tr class="list__header">
+          <th class="col-2 pointer"
+              (click)="setOrder('id')">
+            id <span><img src="../../../assets/images/sort.png" class="icon" [ngClass]="!reverse?null:'reversed'"></span>
+          </th>
+          <th class="col-6 pointer"
+              (click)="setOrder('name')">name <span><img src="../../../assets/images/sort.png" class="icon" [ngClass]="!inverse?null:'reversed'">
+          </span></th>
+          <th class="col-6">img</th>
+          <th class="col-10">tagline</th>
+        </tr>
+        <single-item *ngFor="let beer of beers | filterPipe:'name':query | orderBy: order:!reverse"
+                     [beer]="beer"
+                     class="single-item">
+        </single-item>
+        <h2 *ngIf="(beers | filterPipe: 'name':query).length === 0">No matching elements</h2>
 
-  </table>
+      </table>
+    </div>
+  </div>
+  <div class="col-6"><app-favorites></app-favorites></div>
+
 </div>
-
-<app-favorites></app-favorites>

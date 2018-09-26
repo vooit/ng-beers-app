@@ -1,13 +1,76 @@
-/* You can add global styles to this file, and also import other style files */
+@import "assets/styles/vars";
+@import "assets/styles/functions";
+@import "assets/styles/animations";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+  font: sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 .active-link {
   background: blue;
   color: white;
 }
 
+.scrollable-x {
+  overflow-x: scroll;
+}
+
 body {
   margin: 0;
   padding: 0;
   margin-top: -16px;
+}
+
+header {
+  mat-toolbar-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.search {
+  margin: 0 auto;
+  max-width: 300px;
+  &__input {
+  }
+  &.search.mat-form-field {
+    margin: 0 auto;
+    display: block;
+    resize: none;
+  }
+}
+
+.list {
+  min-width: 800px;
+  &__header {
+    background: $headerBg;
+    transition: .3 ease;
+    th {
+      padding: 6px 0;
+      &.pointer {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.reversed {
+  transform: rotate(180deg);
+}
+
+.icon {
+  max-width: 16px;
+}
+
+@media screen and (max-width: 560px) {
 }
