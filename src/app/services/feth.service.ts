@@ -27,7 +27,6 @@ export class FethService {
         observer.next(this.cache);
       });
     }
-    // return this.http.get(this.url).map(data => this.cache = data);
     return this.http.get(`${this.url}?per_page=${this.itemsPerPage}&page=${this.pageNumber}`)
       .map(data => {
         this.beersToDisplay.next(data);

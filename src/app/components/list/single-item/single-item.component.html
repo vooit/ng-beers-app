@@ -3,7 +3,7 @@
     <button mat-mini-fab disabled>{{beer.id}}</button>
   </td>
   <td>{{beer.name}} <br>
-    <button type="button" (click)="goToBeer($event, beer.id)" mat-raised-button color="primary">Redirect
+    <button type="button" (click)="goToBeer($event, beer.id)" mat-raised-button color="primary">Details
     </button>
     <button type="button" *ngIf="isAdded" (click)="removeFromFav(beer)" mat-raised-button color="warn">Remove</button>
     <button type="button" *ngIf="!isAdded" (click)="addToFavorites(beer)" mat-raised-button>Add</button>

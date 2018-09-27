@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FethService} from '../../services/feth.service';
 import {ISubscription} from 'rxjs/Subscription';
 import {Router, ActivatedRoute, ParamMap} from '@angular/router';
-import {switchMap} from 'rxjs/operators';
 
 
 @Component({
